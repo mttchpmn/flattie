@@ -4,7 +4,12 @@ import React, { Fragment } from "react";
 const Home = () => {
   const { isAuthenticated } = useAuth0();
 
-  if (!isAuthenticated) return <div>Fuck you</div>;
+  if (!isAuthenticated)
+    return (
+      <div>
+        <p>Holla holla holla</p>
+      </div>
+    );
 
   return (
     <Fragment>
