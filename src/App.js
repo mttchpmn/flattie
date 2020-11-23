@@ -2,11 +2,16 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
+import { Layout } from "antd";
+
 import { Home } from "./views";
-import "./app.scss";
-import NavBar from "./components/nav/navbar";
+import { Header } from "./components/header";
+
+import "./main.scss";
+import styles from "./app.module.scss";
 // import { NavBar, Footer, Loading } from "./components";
 // import ProtectedRoute from "./auth/protected-route";
+const { Content } = Layout;
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -18,11 +23,15 @@ const App = () => {
 
   return (
     <div id="app" className="app">
-      <NavBar />
+      <Header />
       <div className="app-container">
-        <Switch>
-          <Route path="/" exact component={Home} />
-        </Switch>
+        <Content>
+          <div className="site-layout-content">
+            <Switch>
+              <Route path="/" exact component={Home} />
+            </Switch>
+          </div>
+        </Content>
       </div>
       {/* <Footer /> */}
     </div>
