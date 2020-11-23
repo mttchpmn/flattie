@@ -15,11 +15,13 @@ import Router from "./components/router/router";
 const { Content } = Layout;
 
 const App = () => {
-  const { isLoading } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
 
   if (isLoading) {
     return <LoadingSpinner />;
   }
+
+  // if (!isAuthenticated) return <div>LANDING...</div>;
 
   return (
     <div id="app" className={styles.appContainer}>
