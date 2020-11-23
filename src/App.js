@@ -7,8 +7,10 @@ import { Layout } from "antd";
 import { Home } from "./views";
 import { Header } from "./components/header";
 
+import "./antd.less";
 import "./main.scss";
 import styles from "./app.module.scss";
+
 // import { NavBar, Footer, Loading } from "./components";
 // import ProtectedRoute from "./auth/protected-route";
 const { Content } = Layout;
