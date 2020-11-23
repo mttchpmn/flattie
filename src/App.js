@@ -24,18 +24,16 @@ const App = () => {
   }
 
   return (
-    <div id="app" className="app">
+    <div id="app" className={styles.appContainer}>
       <Layout>
         <Header />
-        <div className="app-container">
-          <Content>
-            <div className={styles.siteLayoutContent}>
-              <Switch>
-                <Route path="/" exact component={Home} />
-              </Switch>
-            </div>
-          </Content>
-        </div>
+        <Content>
+          <div className={styles.siteLayoutContent}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+            </Switch>
+          </div>
+        </Content>
       </Layout>
       {/* <Footer /> */}
     </div>
