@@ -10,6 +10,7 @@ import { Header } from "./components/header";
 import "./antd.less";
 import "./main.scss";
 import styles from "./app.module.scss";
+import LoadingSpinner from "./components/loading";
 
 // import { NavBar, Footer, Loading } from "./components";
 // import ProtectedRoute from "./auth/protected-route";
@@ -19,22 +20,23 @@ const App = () => {
   const { isLoading } = useAuth0();
 
   if (isLoading) {
-    // return <Loading />;
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   return (
     <div id="app" className="app">
-      <Header />
-      <div className="app-container">
-        <Content>
-          <div className="site-layout-content">
-            <Switch>
-              <Route path="/" exact component={Home} />
-            </Switch>
-          </div>
-        </Content>
-      </div>
+      <Layout>
+        <Header />
+        <div className="app-container">
+          <Content>
+            <div className={styles.siteLayoutContent}>
+              <Switch>
+                <Route path="/" exact component={Home} />
+              </Switch>
+            </div>
+          </Content>
+        </div>
+      </Layout>
       {/* <Footer /> */}
     </div>
   );
