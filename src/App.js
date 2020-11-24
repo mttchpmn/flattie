@@ -1,43 +1,30 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import { Layout } from "antd";
-
-import { Header } from "./components/header";
-import { Sider } from "./components/sider";
 import LoadingSpinner from "./components/loading";
+import { ProtectedRoute } from "./components/auth";
+
+import Home from "./views/home";
+import Profile from "./views/profile";
 
 import "./antd.less";
 import "./main.scss";
 import styles from "./app.module.scss";
-import Router from "./components/router/router";
-
-const { Content } = Layout;
 
 const App = () => {
-  const { isLoading, isAuthenticated } = useAuth0();
+  const { isLoading } = useAuth0();
 
   if (isLoading) {
     return <LoadingSpinner />;
   }
 
-  // if (!isAuthenticated) return <div>LANDING...</div>;
-
   return (
     <div id="app" className={styles.appContainer}>
-      <Layout>
-        <Header />
-        <Layout>
-          <Sider />
-          <Layout>
-            <Content>
-              <div className={styles.siteLayoutContent}>
-                <Router />
-              </div>
-            </Content>
-          </Layout>
-        </Layout>
-      </Layout>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <ProtectedRoute path="/profile" component={Profile} />
+      </Switch>
     </div>
   );
 };

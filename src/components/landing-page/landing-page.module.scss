@@ -1,0 +1,30 @@
+.contentContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoContainer {
+  text-align: center;
+}
+.logo {
+  max-height: 150px;
+  width: auto;
+}
+
+.authContainer {
+  padding: 2rem;
+}
+
+.textContainer {
+  text-align: center;
+}
+.footer {
+  background: #eee;
+}
+
+.footerText {
+  text-align: center;
+}

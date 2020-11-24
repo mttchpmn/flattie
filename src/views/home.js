@@ -1,21 +1,18 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React, { Fragment } from "react";
+import React from "react";
+import { MainLayout } from "../layouts";
+import { LandingPage } from "../components/landing-page/";
 
 const Home = () => {
   const { isAuthenticated } = useAuth0();
 
-  if (!isAuthenticated)
-    return (
-      <div>
-        <p>Holla holla holla</p>
-      </div>
-    );
+  if (!isAuthenticated) return <LandingPage />;
 
   return (
-    <Fragment>
+    <MainLayout>
       <p>Welcome to Flattie...</p>
       <p>You are logged in</p>
-    </Fragment>
+    </MainLayout>
   );
 };
 
