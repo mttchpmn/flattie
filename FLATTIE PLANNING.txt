@@ -1,0 +1,24 @@
+FLATTIE PLANNING
+
+TO CREATE FLAT:
+  - Admin user creates flat data using create flat form
+  - Flat data is posted to Flattie API; new row created in flat table
+  -  On success, flat_id is added to Auth0 user profile using Auth0 M API
+
+TO ADD USER TO FLAT:
+  - User profile of new flattie needs to be updated with flat Id of new flat
+  - Get new flattie's user id by using management API and looking up by email address
+    - https://flattie.au.auth0.com/api/v2/users-by-email?email=matt%40mattchapman.io
+  - If flat_id already exists on new flattie's profile. They are already a memebr of a current flat,
+    so throw error saying they'll need to leave that flat first
+  - Alse need to handle error if no user found for that email address
+  - Eventually need to handle invite / acceptance pattern in the future
+  - Otherwise add flat_id of current admin's user profile to user profile of new flattie
+  - Done.
+  NB: No updates need to be made to the flat table (?) as we are using the user profile to control flat owenrship
+
+
+TO GET ALL FLATTIES IN FLAT:
+  - Use Auth0 Management API
+  - flat_id for each flattie will be stored in app_metadata property of user profile
+  - Use API user search to find all users where app_metadata.flat_id = flat_id

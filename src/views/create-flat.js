@@ -6,7 +6,7 @@ import { Layout } from "antd";
 
 import { MainLayout } from "../layouts";
 import { LandingPage } from "../components/landing-page/";
-import { FlatContext } from "../components/context/flat-context";
+import { FlatContext } from "../context/flat-context";
 import { CreateFlatForm } from "../components/create-flat-form/";
 
 const { Content } = Layout;

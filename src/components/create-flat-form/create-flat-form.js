@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { Button, Form, Input } from "antd";
 
-import { FlatContext } from "../context/flat-context";
+import { FlatContext } from "../../context/flat-context";
 
 const CreateFlatForm = ({ onSuccessRedirect }) => {
   const { setFlatData } = useContext(FlatContext);

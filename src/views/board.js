@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { MainLayout } from "../layouts";
 
 import { Typography, Layout } from "antd";
-import { FlatContext } from "../components/context/flat-context";
+import { FlatContext } from "../context/flat-context";
 
 const { Content } = Layout;
 const { Title, Text } = Typography;

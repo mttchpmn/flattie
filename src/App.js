@@ -13,7 +13,8 @@ import "./antd.less";
 import "./main.scss";
 import styles from "./app.module.scss";
 import CreateFlat from "./views/create-flat";
-import { FlatContextWrapper } from "./components/context/flat-context";
+import { FlatContextWrapper } from "./context/flat-context";
+import { UserProvider } from "./context/user-context";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -24,14 +25,16 @@ const App = () => {
 
   return (
     <div id="app" className={styles.appContainer}>
-      <FlatContextWrapper>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <ProtectedRoute path="/create-flat" component={CreateFlat} />
-          <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/board" component={Board} />
-        </Switch>
-      </FlatContextWrapper>
+      <UserProvider>
+        <FlatContextWrapper>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <ProtectedRoute path="/create-flat" component={CreateFlat} />
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/board" component={Board} />
+          </Switch>
+        </FlatContextWrapper>
+      </UserProvider>
     </div>
   );
 };
